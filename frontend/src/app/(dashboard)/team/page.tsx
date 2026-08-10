@@ -33,6 +33,16 @@ const teamMembers: TeamMember[] = [
     initials: 'AP',
     icon: Code2,
   },
+  {
+    name: 'Christine Le',
+    nickname : 'Zehntel',
+    role: 'Computer Science Student',
+    interests:
+      'Full-stack development, database design, web and app development, and creating automated solutions for repetitive tasks.',
+    initials: 'CL',
+    icon: Code2,
+  },
+  
 ]
 
 export default function TeamPage() {
