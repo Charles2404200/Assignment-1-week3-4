@@ -24,7 +24,7 @@ export default function SignInPage() {
 
   useEffect(() => {
     if (!loading && user) {
-      router.replace('/team')
+      router.replace('/dashboard')
     }
   }, [loading, user, router])
 
@@ -41,7 +41,7 @@ export default function SignInPage() {
     try {
       await signInWithEmail(data.email, data.password)
       toast.success('Signed in successfully')
-      router.replace('/team')
+      router.replace('/dashboard')
       router.refresh()
     } catch (error: unknown) {
       if (error instanceof Error && error.message.includes('email-not-verified')) {
@@ -55,7 +55,7 @@ export default function SignInPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/team')
+      router.replace('/dashboard')
     } catch {
       toast.error('Google sign-in failed. Please try again.')
     }
