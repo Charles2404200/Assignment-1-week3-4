@@ -1,49 +1,7 @@
-import type { Metadata } from 'next'
-import { BriefcaseBusiness, Code2, Palette, Users } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Our Team',
-}
-
-type TeamMember = {
-  name: string
-  nickname?: string
-  role: string
-  interests: string
-  initials: string
-  icon: typeof Palette
-}
-
-// Add new members to this list as their details become available.
-const teamMembers: TeamMember[] = [
-  {
-    name: 'Tran Viet Anh',
-    nickname: 'Vince',
-    role: 'UX Designer',
-    interests: 'Product design, software development, AI, and building digital products.',
-    initials: 'TV',
-    icon: Palette,
-  },
-  {
-    name: 'Anubhav Patra',
-    nickname : 'Anub',
-    role: 'Developer',
-    interests:
-      'Software development, advanced computer science, system design, parallel computing, distributed systems, and mathematics.',
-    initials: 'AP',
-    icon: Code2,
-  },
-  {
-    name: 'Christine Le',
-    nickname : 'Zehntel',
-    role: 'Computer Science Student',
-    interests:
-      'Full-stack development, database design, web and app development, and creating automated solutions for repetitive tasks.',
-    initials: 'CL',
-    icon: Code2,
-  },
-  
-]
+import TeamMember from "./components/TeamMember"
+import { teamMembers } from "./data/team_members"
+import { BriefcaseBusiness, Users } from "lucide-react"
 
 export default function TeamPage() {
   return (
@@ -71,32 +29,14 @@ export default function TeamPage() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          {teamMembers.map(({ name, nickname, role, interests, initials, icon: Icon }) => (
-            <article
-              key={name}
-              className="group rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 text-lg font-bold text-white dark:bg-white dark:text-zinc-900">
-                  {initials}
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-xl font-semibold tracking-tight">
-                    {name}
-                    {nickname && (
-                      <span className="ml-2 text-sm font-normal text-zinc-500">({nickname})</span>
-                    )}
-                  </h3>
-                  <div className="mt-1 flex items-center gap-2 text-sm font-medium text-zinc-500">
-                    <Icon className="h-4 w-4" />
-                    {role}
-                  </div>
-                </div>
-              </div>
-              <p className="mt-6 border-t border-zinc-100 pt-5 text-sm leading-6 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                {interests}
-              </p>
-            </article>
+          {teamMembers.map(({ name, nickname, role, interests, initials, icon }) => (
+            <TeamMember name={name}
+            nickname={nickname}
+            role={role}
+            interests={interests}
+            initials={initials}
+            icon={icon}
+            />
           ))}
         </div>
       </section>
