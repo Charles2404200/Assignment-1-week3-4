@@ -32,12 +32,12 @@ describe('Sign In Page Happy Path', () => {
         render(<SignInPage />)
 
         // mocks user input for email and password fields and sign in button click
-        await user.type(screen.getByLabelText(/email/i), 'scrumptiousramen@gmail.com')
+        await user.type(screen.getByLabelText(/email/i), 's4023387@student.rmit.edu.au')
         await user.type(screen.getByLabelText(/password/i), 'Test1234')
         await user.click(screen.getByRole('button', { name: /sign in/i }))
 
         await waitFor(() => expect(mockSignInWithEmail).toHaveBeenCalledWith(
-            'scrumptiousramen@gmail.com',
+            's4023387@student.rmit.edu.au',
             'Test1234'
         ))
 
