@@ -25,7 +25,7 @@ export default function SignUpPage() {
 
   useEffect(() => {
     if (!loading && !isSubmitting && user) {
-      router.replace('/dashboard')
+      router.replace('/team')
     }
   }, [loading, isSubmitting, user, router])
 
@@ -34,7 +34,7 @@ export default function SignUpPage() {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-      router.replace('/dashboard')
+      router.replace('/team')
     } catch {
       toast.error('Google sign-in failed. Please try again.')
     }
