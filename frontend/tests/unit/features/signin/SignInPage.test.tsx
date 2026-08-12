@@ -44,4 +44,19 @@ describe('Sign In Page Happy Path', () => {
         // successful login redirects to the team page
         expect(mockReplace).toHaveBeenCalledWith('/team')
     })
+
+    it('login with invalid credentials', async () => {
+        mockSignInWithEmail.mockRejectedValue(new Error('auth/invalid-credential'))
+        const user = userEvent.setup()
+        render(<SignInPage />)
+
+        // mocks user input for with invalid email and password
+        await user.type(screen.getByLabelText(/email/i), 'invalidemail@gmail.com')
+        await user.type(screen.getByLabelText(/password/i), 'invalidpassword')
+        await user.click(screen.getByRole('button', { name: /sign in/i }))
+
+        // unsuccessful login and expects error message
+        expect(await screen.findByRole('alert')).toHaveTextContent(/invalid email or password/i)
+        expect(mockReplace).not.toHaveBeenCalled()
+    })
 })
