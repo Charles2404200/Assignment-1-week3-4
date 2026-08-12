@@ -34,8 +34,8 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Christine Le',
-    nickname: 'Zehntel',
-    role: 'Computer Science Student',
+    nickname: 'Christine',
+    role: 'Developer',
     interests:
       'Full-stack development, database design, web and app development, and creating automated solutions for repetitive tasks.',
     initials: 'CL',
