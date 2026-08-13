@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mock Sprint UX — mockup index</title>
+    <link rel="stylesheet" href="prototype.css" />
+    <style>
+      .wrap {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin: 0 0 0.5rem;
+      }
+      .lede {
+        color: var(--zinc-500);
+        margin: 0 0 2rem;
+        line-height: 1.6;
+      }
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+      .card-link {
+        display: block;
+        padding: 1rem 1.25rem;
+        background: #fff;
+        border: 1px solid var(--zinc-200);
+        border-radius: var(--radius-lg);
+        text-decoration: none;
+        color: inherit;
+        box-shadow: var(--shadow-sm);
+      }
+      .card-link:hover {
+        border-color: var(--brand-500);
+      }
+      .card-link strong {
+        display: block;
+        font-size: 0.9375rem;
+      }
+      .card-link span {
+        font-size: 0.8125rem;
+        color: var(--zinc-500);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Mock Sprint — UX mockups</h1>
+      <p class="lede">
+        Static, self-contained design frames for the Week 3–4 Mock Sprint. Open any file directly in
+        a browser — no build step, no dependencies, no application code. These are review artifacts;
+        the implementation spec lives in
+        <a href="../design-spec.md">../design-spec.md</a>.
+      </p>
+
+      <ol>
+        <li>
+          <a class="card-link" href="01-login-default.html"
+            ><strong>01 — Login, default</strong>
+            <span>Split layout, restyled inputs and CTA</span></a
+          >
+        </li>
+        <li>
+          <a class="card-link" href="02-login-error.html"
+            ><strong>02 — Login, invalid credentials</strong>
+            <span>Form-level alert + field-level errors (FR-04)</span></a
+          >
+        </li>
+        <li>
+          <a class="card-link" href="03-login-focus.html"
+            ><strong>03 — Login, keyboard focus</strong>
+            <span>Focus ring and tab order (NFR-02)</span></a
+          >
+        </li>
+        <li>
+          <a class="card-link" href="04-team-default.html"
+            ><strong>04 — Team page, normal</strong>
+            <span>Five member cards, all four roles</span></a
+          >
+        </li>
+        <li>
+          <a class="card-link" href="05-team-edge-cases.html"
+            ><strong>05 — Team page, edge cases</strong>
+            <span>Missing photo · long blurb collapsed · 72-char name</span></a
+          >
+        </li>
+        <li>
+          <a class="card-link" href="06-team-blurb-expanded.html"
+            ><strong>06 — Team page, blurb expanded</strong>
+            <span>Expanded state with focused toggle</span></a
+          >
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

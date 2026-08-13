@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>05 — Team page (edge cases, collapsed) | Mock Sprint UX</title>
+    <link rel="stylesheet" href="prototype.css" />
+    <style>
+      /* Frame-only: a dashed baseline proving all three cards end at the same
+         height despite very different content. Not part of the product design. */
+      .measure {
+        position: relative;
+      }
+      .measure::after {
+        content: 'all cards share this baseline';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1.5rem;
+        border-top: 1px dashed var(--brand-500);
+        font-size: 0.6875rem;
+        color: var(--brand-700);
+        padding-top: 0.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="frame-label">
+      States 05 · 06 · 08 — Missing photo, long blurb (collapsed), long name (2-line wrap)
+    </p>
+
+    <header class="navbar">
+      <span class="wordmark"><span class="mark">G10</span> Group 10</span>
+      <button type="button" class="signout">Sign out</button>
+    </header>
+
+    <main class="team-wrap">
+      <div class="team-header">
+        <h1>Meet Group 10</h1>
+        <p>Three edge cases shown side by side, at the same breakpoint, in the same row.</p>
+      </div>
+
+      <ul class="team-grid measure" style="list-style: none; margin: 0 0 2rem; padding: 0">
+        <!-- STATE 05 — no photo uploaded -->
+        <li class="member-card">
+          <div class="member-avatar member-avatar--placeholder" role="img" aria-label="No profile photo provided">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.75" />
+              <path
+                d="M4.5 20c1.2-4.2 3.9-6.3 7.5-6.3s6.3 2.1 7.5 6.3"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <h2 class="member-name">Sam Whitfield</h2>
+          <span class="role-badge role-badge--ba">Business Analyst</span>
+          <p class="member-blurb">
+            Joined the team in week 2 and hasn't uploaded a photo yet. The card renders the default
+            avatar in its place.
+          </p>
+        </li>
+
+        <!-- STATE 06 — blurb between 251 and 500 chars, truncated at 250 -->
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Priya Rao">
+            <circle cx="32" cy="32" r="32" fill="#bfdbfe" />
+            <circle cx="32" cy="25" r="11" fill="#1d4ed8" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#1d4ed8" />
+          </svg>
+          <h2 class="member-name">Priya Rao</h2>
+          <span class="role-badge role-badge--dev">Developer</span>
+          <p class="member-blurb" id="blurb-priya">
+            Full-stack developer on Group 10 and the person most likely to be found rewriting a
+            commit message at midnight. Started in backend work, moved into React when the team
+            needed someone to own the frontend, and has stayed there since. Cares a lot
+            about&hellip;<button
+              type="button"
+              class="read-more"
+              aria-expanded="false"
+              aria-controls="blurb-priya"
+            >
+              Read more
+            </button>
+          </p>
+        </li>
+
+        <!-- STATE 08 — 72-character name, wraps to exactly 2 lines -->
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Bartholomew Alexanderson">
+            <circle cx="32" cy="32" r="32" fill="#fde68a" />
+            <circle cx="32" cy="25" r="11" fill="#92400e" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#92400e" />
+          </svg>
+          <h2 class="member-name" title="Bartholomew Maximilian Fitzgerald-Wellington Montgomery Alexanderson III">
+            Bartholomew Maximilian Fitzgerald-Wellington Montgomery Alexanderson III
+          </h2>
+          <span class="role-badge role-badge--dev">Developer</span>
+          <p class="member-blurb">
+            A 72-character name. It clamps to two lines with an ellipsis; the full name stays
+            available as the element's accessible text.
+          </p>
+        </li>
+      </ul>
+    </main>
+
+    <p class="note">
+      <strong>Design notes.</strong>
+      <em>Missing photo (FR-03):</em> the placeholder occupies the identical 4rem circle, so the
+      name, badge and blurb below it sit on exactly the same vertical rhythm as a card with a
+      photo.
+      <em>Long name:</em> <code>line-clamp-2</code> plus a reserved
+      <code>min-height</code> of two lines means a one-line name and a two-line name produce the
+      same card geometry — short names do not make short cards. <code>overflow-wrap: anywhere</code>
+      handles a single unbroken 80-character token.
+      <em>Long blurb (collapsed):</em> truncated at 250 characters with an ellipsis and an inline
+      <code>Read more</code> button, which is a real <code>&lt;button&gt;</code> — focusable,
+      Enter/Space activated, and carrying
+      <code>aria-expanded</code> + <code>aria-controls</code>.
+    </p>
+  </body>
+</html>

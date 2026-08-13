@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>06 — Team page (long blurb expanded) | Mock Sprint UX</title>
+    <link rel="stylesheet" href="prototype.css" />
+  </head>
+  <body>
+    <p class="frame-label">
+      State 07 — Long blurb expanded, with the "Read more" control focused (NFR-02)
+    </p>
+
+    <header class="navbar">
+      <span class="wordmark"><span class="mark">G10</span> Group 10</span>
+      <button type="button" class="signout">Sign out</button>
+    </header>
+
+    <main class="team-wrap">
+      <div class="team-header">
+        <h1>Meet Group 10</h1>
+        <p>
+          The middle card is expanded. Only that card grows — its neighbours keep their collapsed
+          height, and no other card moves.
+        </p>
+      </div>
+
+      <ul class="team-grid" style="list-style: none; margin: 0; padding: 0; align-items: start">
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Ava Nguyen">
+            <circle cx="32" cy="32" r="32" fill="#c7d2fe" />
+            <circle cx="32" cy="25" r="11" fill="#4f46e5" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#4f46e5" />
+          </svg>
+          <h2 class="member-name">Ava Nguyen</h2>
+          <span class="role-badge role-badge--pm">Project Manager</span>
+          <p class="member-blurb">
+            Keeps the board honest and the sprint on time. Runs stand-ups, chases blockers, and owns
+            the final sign-off on every card.
+          </p>
+        </li>
+
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Priya Rao">
+            <circle cx="32" cy="32" r="32" fill="#bfdbfe" />
+            <circle cx="32" cy="25" r="11" fill="#1d4ed8" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#1d4ed8" />
+          </svg>
+          <h2 class="member-name">Priya Rao</h2>
+          <span class="role-badge role-badge--dev">Developer</span>
+          <p class="member-blurb" id="blurb-priya">
+            Full-stack developer on Group 10 and the person most likely to be found rewriting a
+            commit message at midnight. Started in backend work, moved into React when the team
+            needed someone to own the frontend, and has stayed there since. Cares a lot about small
+            pull requests, readable diffs and a green CI run. Outside the sprint, builds keyboard
+            firmware nobody asked for and is slowly learning to make a decent flat white.<button
+              type="button"
+              class="read-more is-focused"
+              aria-expanded="true"
+              aria-controls="blurb-priya"
+            >
+              Show less
+            </button>
+          </p>
+        </li>
+
+        <li class="member-card">
+          <div class="member-avatar member-avatar--placeholder" role="img" aria-label="No profile photo provided">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.75" />
+              <path
+                d="M4.5 20c1.2-4.2 3.9-6.3 7.5-6.3s6.3 2.1 7.5 6.3"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <h2 class="member-name">Sam Whitfield</h2>
+          <span class="role-badge role-badge--ba">Business Analyst</span>
+          <p class="member-blurb">
+            Joined the team in week 2 and hasn't uploaded a photo yet. The card renders the default
+            avatar in its place.
+          </p>
+        </li>
+      </ul>
+    </main>
+
+    <p class="note">
+      <strong>Design notes.</strong> Expansion is per-card and in place — no modal, no navigation,
+      nothing that could confuse the reader about where they are. The same control toggles between
+      <code>Read more</code> and <code>Show less</code>, staying inline at the end of the text so
+      focus never jumps. Set <code>align-items: start</code> on the grid (Tailwind
+      <code>items-start</code>) for the expandable row so only the expanded card grows; keep
+      <code>items-stretch</code> if the team prefers whole-row equal height. The control keeps
+      keyboard focus after activation and <code>aria-expanded</code> flips to
+      <code>true</code>, so a screen reader announces the change without moving the user.
+    </p>
+  </body>
+</html>

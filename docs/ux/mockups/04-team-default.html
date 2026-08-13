@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>04 — Team page (normal) | Mock Sprint UX</title>
+    <link rel="stylesheet" href="prototype.css" />
+  </head>
+  <body>
+    <p class="frame-label">State 04 — Team page, normal cards (FR-01 / FR-02 / FR-05)</p>
+
+    <header class="navbar">
+      <span class="wordmark"><span class="mark">G10</span> Group 10</span>
+      <button type="button" class="signout">Sign out</button>
+    </header>
+
+    <main class="team-wrap">
+      <div class="team-header">
+        <h1>Meet Group 10</h1>
+        <p>
+          The five people behind this sprint — what each of us owns, and a short note on how we
+          work.
+        </p>
+      </div>
+
+      <ul class="team-grid" style="list-style: none; margin: 0; padding: 0">
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Ava Nguyen">
+            <circle cx="32" cy="32" r="32" fill="#c7d2fe" />
+            <circle cx="32" cy="25" r="11" fill="#4f46e5" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#4f46e5" />
+          </svg>
+          <h2 class="member-name">Ava Nguyen</h2>
+          <span class="role-badge role-badge--pm">Project Manager</span>
+          <p class="member-blurb">
+            Keeps the board honest and the sprint on time. Runs stand-ups, chases blockers, and owns
+            the final sign-off on every card.
+          </p>
+        </li>
+
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Marco Silva">
+            <circle cx="32" cy="32" r="32" fill="#a7f3d0" />
+            <circle cx="32" cy="25" r="11" fill="#047857" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#047857" />
+          </svg>
+          <h2 class="member-name">Marco Silva</h2>
+          <span class="role-badge role-badge--ba">Business Analyst</span>
+          <p class="member-blurb">
+            Turns client conversations into requirements the team can actually build. Author of the
+            Mock Sprint requirements document.
+          </p>
+        </li>
+
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Vince Tran">
+            <circle cx="32" cy="32" r="32" fill="#fde68a" />
+            <circle cx="32" cy="25" r="11" fill="#92400e" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#92400e" />
+          </svg>
+          <h2 class="member-name">Vince Tran</h2>
+          <span class="role-badge role-badge--ux">UX/UI Designer</span>
+          <p class="member-blurb">
+            Designs the screens before anyone writes CSS. Owns the login restyle and the layout of
+            this page.
+          </p>
+        </li>
+
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Priya Rao">
+            <circle cx="32" cy="32" r="32" fill="#bfdbfe" />
+            <circle cx="32" cy="25" r="11" fill="#1d4ed8" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#1d4ed8" />
+          </svg>
+          <h2 class="member-name">Priya Rao</h2>
+          <span class="role-badge role-badge--dev">Developer</span>
+          <p class="member-blurb">
+            Builds the feature branches. Prefers small pull requests and a green CI run over a
+            clever one-liner.
+          </p>
+        </li>
+
+        <li class="member-card">
+          <svg class="member-avatar" viewBox="0 0 64 64" role="img" aria-label="Photo of Daniel Cho">
+            <circle cx="32" cy="32" r="32" fill="#bfdbfe" />
+            <circle cx="32" cy="25" r="11" fill="#1d4ed8" />
+            <path d="M8 62c3-13 12-19 24-19s21 6 24 19z" fill="#1d4ed8" />
+          </svg>
+          <h2 class="member-name">Daniel Cho</h2>
+          <span class="role-badge role-badge--dev">Developer</span>
+          <p class="member-blurb">
+            Tests what the other developer builds — never their own code. Writes the Vitest cases
+            that gate the merge.
+          </p>
+        </li>
+      </ul>
+    </main>
+
+    <p class="note">
+      <strong>Design notes.</strong> Sample names and blurbs are placeholders — real member details
+      are owned by the developer implementing the page. Grid is
+      <code>grid-cols-1 sm:grid-cols-2 lg:grid-cols-3</code> with <code>items-stretch</code>, so
+      every card in a row shares the tallest card's height. Card order is DOM order; each card is a
+      list item inside a <code>&lt;ul&gt;</code> so screen readers announce "list, 5 items". Roles
+      are limited to the four values in FR-05 and each badge shows the role as text, with colour as
+      decoration only.
+    </p>
+  </body>
+</html>

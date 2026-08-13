@@ -12,6 +12,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Brand ramp for the Mock Sprint restyle — see docs/ux/design-spec.md § 1.
+   Tailwind generates bg-brand-*, text-brand-*, outline-brand-* from these. */
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-900: #312e81;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
