@@ -19,7 +19,7 @@
     "bootstrap": "node scripts/bootstrap.js",
     "validate": "node scripts/validate-placeholders.js",
     "hooks": "lefthook install",
-    "prepare": "lefthook install"
+    "prepare": "node -e \"const fs=require('fs');if(fs.existsSync('.git')){require('child_process').execSync('lefthook install',{stdio:'inherit'})}\""
   },
   "devDependencies": {
     "lefthook": "^1.11.13",
